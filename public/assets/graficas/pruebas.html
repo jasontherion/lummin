@@ -1,12 +1,27 @@
-<div class="row">
- <div class="col align-self-start">
-<h1>Grafica de Formato vs Categoria</h1>
-<%= link_to "Ver Libros",libros_path, :class => "btn btn-success" %>
-<div id="chart1" class='d_estadistica' style="height:490px; width:1000px;float:left;"></div>
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Pie and Donut Charts</title>
+
     
+ <div id="chart1" class='d_estadistica' style="height:490px; width:1000px;float:left;"></div>
+    
+    <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="../excanvas.js"></script><![endif]-->
+  <script class="include" language="javascript" type="text/javascript" src="js/jquery.min.js"></script>  
+  <script class="include" language="javascript" type="text/javascript" src="js/jquery.jqplot.js"></script>
 
+  <script class="include" language="javascript" type="text/javascript" src="/assets/graficas/js/jqplot.pieRenderer.js"></script>
+  <script class="include" language="javascript" type="text/javascript" src="/assets/graficas/js/jqplot.donutRenderer.js"></script>
+  <script class="include" language="javascript" type="text/javascript" src="/assets/graficas/js/jqplot.barRenderer.js"></script>
+  <script class="include" type="text/javascript" src="/assets/graficas/js/jqplot.categoryAxisRenderer.js"></script>
+  <script class="include" type="text/javascript" src="/assets/graficas/js/jqplot.enhancedLegendRenderer.js"></script>
+  <script class="include" type="text/javascript" src="/assets/graficas/js/jqplot.pointLabels.js"></script>
 
-  </div></div>   
+  <link rel="stylesheet" href="/assets/graficas/css/jquery.jqplot.css">
+
+     
 <script>
 
 $(document).ready(function(){
@@ -18,13 +33,14 @@ $(document).ready(function(){
     var secuencia2 =  [[20, 1]];
 
                   
-    var ticks = [];
-    var labelsSeries = [];
+    var ticks = ['APROBO','NO APROBO'];
+    var labelsSeries = ['INSUFICIENTE',decodeUFT('MÍNIMO'),'SATISFACTORIO','AVANZADO'];
 
-    cargarGraficaBarrasLateral(nombreDiv = 'chart1', tituloGrafica='Totales Nacionales Aprobados No aprobados', secuencia1, secuencia2,labelsSeries, seriesColors, ticks);
+  cargarGraficaBarrasLateral(nombreDiv = 'chart1', tituloGrafica='Totales Nacionales Aprobados No aprobados', secuencia1, secuencia2,labelsSeries, seriesColors, ticks);
      
 
-function cargarGraficaBarrasLateral(nombreDiv, tituloGrafica, secuencia1, secuencia2, labelsSeries, colores, ticksLabels){
+
+	 function cargarGraficaBarrasLateral(nombreDiv, tituloGrafica, secuencia1, secuencia2, labelsSeries, colores, ticksLabels){
         $('.jqplot-table-legend').css('top','580px');
           plot4 = $.jqplot(nombreDiv, [secuencia1,secuencia2], {
             stackSeries: true,
@@ -49,8 +65,8 @@ function cargarGraficaBarrasLateral(nombreDiv, tituloGrafica, secuencia1, secuen
         
             },
             series:[
-                {label:'Formato'}, 
-                {label:'Categoria'} 
+                {label:'APROBO'}, 
+                {label:'NO APROBO'} 
             ],
             legend: {
                 show: true,
@@ -97,12 +113,11 @@ function cargarGraficaBarrasLateral(nombreDiv, tituloGrafica, secuencia1, secuen
  function decodeUFT (texto){
   return texto;
 }    
-     
-
-
-	 }); 
+    });
 
 </script>
 
 
 
+
+</html>

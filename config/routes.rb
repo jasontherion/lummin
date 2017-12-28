@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'grafica/index'  => 'libros#grafico_libros'
+  get 'grafica/index'  => 'grafica#index'
 
   resources :libros
   devise_for :users
