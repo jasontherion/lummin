@@ -34,14 +34,14 @@
 
     <%= f.label :categoria, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-       <%= f.select(:categoria, options_for_select(["Acción", "Novela", "Ficcion", "Comedia"]), {:class => 'form-control', :readonly =>'readonly'}) %>
+       <%= f.select(:categoria, options_for_select(["Acción", "Novela", "Ficcion", "Comedia"]), {:class => 'form-control', :readonly =>'readonly',:name =>'libro[categoria]'}) %>
     </div>
     <%=f.error_span(:categoria) %>
   </div>
   <div class="form-group">
     <%= f.label :formato, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-           <%= f.select(:formato, options_for_select(["Impreso", "Fisico","Digital"]), {:class => 'form-control', :readonly =>'readonly'}) 
+           <%= f.select(:formato, options_for_select(["Impreso", "Fisico","Digital"]), {:class => 'form-control', :readonly =>'readonly', :name =>'libro[formato]'}) 
            %>
     </div>
     <%=f.error_span(:formato) %>
