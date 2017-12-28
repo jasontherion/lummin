@@ -31,16 +31,18 @@
     <%=f.error_span(:precio) %>
   </div>
   <div class="form-group">
+
     <%= f.label :categoria, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :categoria, :class => 'form-control' %>
+       <%= f.select(:categoria, options_for_select(["Acción", "Novela", "Ficcion", "Comedia"]), {:class => 'form-control', :readonly =>'readonly'}) %>
     </div>
     <%=f.error_span(:categoria) %>
   </div>
   <div class="form-group">
     <%= f.label :formato, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :formato, :class => 'form-control' %>
+           <%= f.select(:formato, options_for_select(["Impreso", "Fisico"]), {:class => 'form-control', :readonly =>'readonly'}) 
+           %>
     </div>
     <%=f.error_span(:formato) %>
   </div>
