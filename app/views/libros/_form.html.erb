@@ -41,7 +41,7 @@
   <div class="form-group">
     <%= f.label :formato, :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-           <%= f.select(:formato, options_for_select(["Impreso", "Fisico"]), {:class => 'form-control', :readonly =>'readonly'}) 
+           <%= f.select(:formato, options_for_select(["Impreso", "Fisico","Digital"]), {:class => 'form-control', :readonly =>'readonly'}) 
            %>
     </div>
     <%=f.error_span(:formato) %>
